@@ -23,37 +23,27 @@
     {
       "date": "2026-09-02",
       "time": "7:00 PM",
-      "title": "Board meeting",
-      "agenda": "https://example.com/documents/agenda-2026-09",
-      "minutes": "https://example.com/documents/minutes-2026-09"
+      "title": "Board meeting"
     },
     {
       "date": "2026-08-05",
       "time": "7:00 PM",
-      "title": "Board meeting",
-      "agenda": "https://example.com/documents/agenda-2026-08",
-      "minutes": "https://example.com/documents/minutes-2026-08"
+      "title": "Board meeting"
     },
     {
       "date": "2026-07-01",
       "time": "7:00 PM",
-      "title": "Board meeting",
-      "agenda": "https://example.com/documents/agenda-2026-07",
-      "minutes": "https://example.com/documents/minutes-2026-07"
+      "title": "Board meeting"
     },
     {
       "date": "2026-06-02",
       "time": "7:00 PM",
-      "title": "Board meeting",
-      "agenda": "https://example.com/documents/agenda-2026-06",
-      "minutes": "https://example.com/documents/minutes-2026-06"
+      "title": "Board meeting"
     },
     {
       "date": "2026-05-05",
       "time": "7:00 PM",
-      "title": "Board meeting",
-      "agenda": "https://example.com/documents/agenda-2026-05",
-      "minutes": "https://example.com/documents/minutes-2026-05"
+      "title": "Board meeting"
     }
   ]
 }

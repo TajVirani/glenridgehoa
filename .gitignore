@@ -1,0 +1,8 @@
+# Developer tooling (lint only; nothing from here ships)
+node_modules/
+
+# Design reference: the site was built from it, it is not part of the site
+design/
+
+# Windows download markers
+*:Zone.Identifier

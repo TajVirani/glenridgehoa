@@ -1,0 +1,18 @@
+{
+  "name": "glenridge-hoa-site",
+  "private": true,
+  "description": "Developer tooling for the Glen Ridge HOA website. Nothing here ships: the site in site/ has no build step.",
+  "type": "module",
+  "scripts": {
+    "check": "npm run check:content && npm run check:links && npm run lint",
+    "check:content": "node .github/scripts/check-content.js",
+    "check:links": "node .github/scripts/check-links.js",
+    "lint": "eslint .",
+    "serve": "python3 -m http.server 8000 --directory site"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.11.0",
+    "globals": "17.12.0"
+  }
+}

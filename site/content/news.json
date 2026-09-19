@@ -1,0 +1,57 @@
+{
+  "_note": "News items, newest first. The home page shows the first three. Each item needs date, title and summary; tag is one word shown as a label (Dues, Projects, Meetings, Rules, Events). For more than one paragraph add a body, with one quoted paragraph per line. Plain text only.",
+  "items": [
+    {
+      "date": "2026-09-14",
+      "title": "Fall dues invoices mailed",
+      "summary": "Annual assessments were mailed September 12 and are due October 31. Pay online through the Portal or by check to the management office.",
+      "tag": "Dues"
+    },
+    {
+      "date": "2026-09-08",
+      "title": "Entrance landscaping refresh begins September 22",
+      "summary": "Crews will replace the plantings at the Glenridge Boulevard entrance over two weeks. Expect one lane closed weekday mornings.",
+      "tag": "Projects",
+      "body": [
+        "Work runs Monday through Friday between 8:00 AM and 3:00 PM. The sidewalk on the north side stays open throughout.",
+        "The new beds are drought-tolerant perennials chosen to cut summer watering. Questions can be sent to the board through the Portal."
+      ]
+    },
+    {
+      "date": "2026-08-30",
+      "title": "Board meeting: Wednesday, October 7, 7:00 PM",
+      "summary": "Open to all homeowners. The agenda and the September minutes are posted under Documents one week before the meeting.",
+      "tag": "Meetings"
+    },
+    {
+      "date": "2026-08-18",
+      "title": "Street parking reminder",
+      "summary": "Overnight street parking is limited to 48 hours in all sections. Guest parking questions can be sent through the Portal.",
+      "tag": "Rules"
+    },
+    {
+      "date": "2026-07-29",
+      "title": "Pond aeration repair complete",
+      "summary": "The fountain in the retention pond is running again after a pump replacement. Thank you for your patience during the outage.",
+      "tag": "Projects"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "Architectural requests: allow three weeks",
+      "summary": "Fence, shed, and exterior paint requests are reviewed at each monthly meeting. Submit through the Portal with photos and a plot sketch.",
+      "tag": "Rules"
+    },
+    {
+      "date": "2026-06-22",
+      "title": "Summer neighborhood cleanup, Saturday June 27",
+      "summary": "Meet at the entrance at 9:00 AM. Bags and gloves provided. Yard-waste pickup follows on Monday.",
+      "tag": "Events"
+    },
+    {
+      "date": "2026-06-04",
+      "title": "June minutes posted",
+      "summary": "Minutes from the June 2 board meeting are now in the Documents library under Meetings.",
+      "tag": "Meetings"
+    }
+  ]
+}

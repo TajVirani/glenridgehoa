@@ -1,0 +1,59 @@
+{
+  "_note": "One list holds every meeting, past and future, in any order. The website sorts them and works out which are upcoming by looking at the date; you never mark a meeting as past. date, time and title are required; note, agenda, minutes and location are optional. The location at the top applies to every meeting, unless a meeting carries its own location line. Add the agenda link when it is ready, and the minutes link after the meeting.",
+  "location": "Location to be confirmed by the board",
+  "meetings": [
+    {
+      "date": "2026-12-02",
+      "time": "7:00 PM",
+      "title": "Annual meeting and board election",
+      "note": "Two board seats open. Nominations close November 18."
+    },
+    {
+      "date": "2026-11-04",
+      "time": "7:00 PM",
+      "title": "Board meeting",
+      "note": "Budget review for 2027."
+    },
+    {
+      "date": "2026-10-07",
+      "time": "7:00 PM",
+      "title": "Board meeting",
+      "note": "Open to all homeowners. Agenda posted one week prior."
+    },
+    {
+      "date": "2026-09-02",
+      "time": "7:00 PM",
+      "title": "Board meeting",
+      "agenda": "https://example.com/documents/agenda-2026-09",
+      "minutes": "https://example.com/documents/minutes-2026-09"
+    },
+    {
+      "date": "2026-08-05",
+      "time": "7:00 PM",
+      "title": "Board meeting",
+      "agenda": "https://example.com/documents/agenda-2026-08",
+      "minutes": "https://example.com/documents/minutes-2026-08"
+    },
+    {
+      "date": "2026-07-01",
+      "time": "7:00 PM",
+      "title": "Board meeting",
+      "agenda": "https://example.com/documents/agenda-2026-07",
+      "minutes": "https://example.com/documents/minutes-2026-07"
+    },
+    {
+      "date": "2026-06-02",
+      "time": "7:00 PM",
+      "title": "Board meeting",
+      "agenda": "https://example.com/documents/agenda-2026-06",
+      "minutes": "https://example.com/documents/minutes-2026-06"
+    },
+    {
+      "date": "2026-05-05",
+      "time": "7:00 PM",
+      "title": "Board meeting",
+      "agenda": "https://example.com/documents/agenda-2026-05",
+      "minutes": "https://example.com/documents/minutes-2026-05"
+    }
+  ]
+}

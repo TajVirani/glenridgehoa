@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community Map &middot; Glen Ridge Homeowners Association</title>
+  <meta name="description" content="Find your section of Glen Ridge on the community map and open the rules that apply to your home.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/theme.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+  <script type="module" src="assets/js/pages/map.js"></script>
+</head>
+<body class="bg-paper font-body text-lg leading-[1.55] text-ink">
+
+<noscript>
+  <p>This site needs JavaScript to display. For help, or for anything you cannot find here, email the board at <a href="mailto:board@glenridgehomeowners.com">board@glenridgehomeowners.com</a>.</p>
+</noscript>
+
+<site-header current="map"></site-header>
+
+<main id="main" class="scroll-mt-6">
+
+  <!-- INTRODUCTION Band -->
+  <section class="bg-steel-800 text-white">
+    <div class="mx-auto grid max-w-[1280px] gap-6 px-6 py-12 md:px-10 md:py-16 lg:grid-cols-[1fr_auto] lg:items-end">
+      <div>
+        <p class="m-0 mb-3 text-sm font-medium uppercase tracking-[0.12em] text-steel-300">300 homes &middot; 8 sections</p>
+        <h1 class="m-0 mb-4 font-heading text-5xl font-semibold leading-none text-white md:text-6xl">Community map</h1>
+        <p class="m-0 max-w-[52ch] text-pretty text-xl text-steel-100">Every home in Glen Ridge belongs to one of eight sections, and each section has its own rules. Choose your section on the map, or from the list below it, to open the rules for your home.</p>
+      </div>
+      <p class="m-0 max-w-[34ch] text-base text-steel-300">Map boundaries are approximate. If your home sits on a line, your deed or closing documents list your section.</p>
+    </div>
+  </section>
+
+  <!-- MAP Band -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-[1280px] px-6 py-10 md:px-10 md:py-14">
+      <h2 class="m-0 mb-6 font-heading text-3xl font-semibold md:text-4xl">Find your section</h2>
+
+      <div id="section-map-band">
+        <div class="grid gap-6 lg:grid-cols-[1fr_17rem]">
+          <div>
+            <div id="section-map" role="region" aria-label="Map of the eight sections of Glen Ridge"
+                 class="h-[60vh] min-h-[360px] w-full scroll-mt-6 border-4 border-steel-800 bg-paper lg:h-[34rem]"></div>
+            <p id="section-map-note" class="m-0 mt-3 max-w-[74ch] text-base text-steel-800">The map shows the eight sections as numbered, colored areas over the neighborhood. Drag it to move, and use the plus and minus buttons to zoom. Everything on it is also in the list of sections below, so you never need the map to reach your rules.</p>
+            <p id="section-map-unavailable" hidden class="m-0 mt-3 max-w-[74ch] text-base text-steel-800">The map could not be loaded. Every section is listed below with a link to its rules.</p>
+          </div>
+
+          <div id="section-chips-panel">
+            <h3 class="m-0 mb-3 font-heading text-2xl font-semibold">Jump to a section</h3>
+            <ul id="section-chips" class="m-0 grid list-none grid-cols-2 gap-2 p-0 sm:grid-cols-4 lg:grid-cols-1"></ul>
+          </div>
+        </div>
+
+        <h3 class="m-0 mb-4 mt-10 font-heading text-2xl font-semibold">Section rules</h3>
+        <ol id="section-list" class="m-0 grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2 lg:grid-cols-4"></ol>
+      </div>
+
+      <template id="section-chip-template">
+        <li>
+          <button type="button" data-chip aria-pressed="false"
+                  class="flex min-h-12 w-full cursor-pointer items-center gap-3 border border-ink/20 bg-white px-3 text-left font-heading text-xl font-semibold text-ink hover:border-steel-700 hover:bg-steel-200 aria-pressed:border-steel-900 aria-pressed:bg-steel-800 aria-pressed:text-white">
+            <span data-swatch aria-hidden="true" class="block h-6 w-6 shrink-0"></span>
+            <span data-name></span>
+          </button>
+        </li>
+      </template>
+
+      <template id="section-item-template">
+        <li>
+          <a data-link target="_blank" rel="noopener"
+             class="flex min-h-[72px] items-stretch border border-ink/15 bg-paper text-ink no-underline hover:border-steel-700 hover:bg-steel-200">
+            <span data-swatch aria-hidden="true" class="grid w-16 shrink-0 place-items-center font-heading text-3xl font-semibold text-white"></span>
+            <span class="flex flex-1 flex-col justify-center px-4 py-3 leading-tight">
+              <span data-name class="font-heading text-xl font-semibold"></span>
+              <span data-label class="text-base text-steel-800">Rules<span class="sr-only"> (opens in a new tab)</span></span>
+              <span data-portal hidden class="mt-1 flex items-center gap-1.5 text-base text-steel-800">Portal login required</span>
+            </span>
+          </a>
+        </li>
+      </template>
+    </div>
+  </section>
+
+  <!-- HELP Band -->
+  <section class="bg-steel-100">
+    <div class="mx-auto grid max-w-[1280px] gap-8 px-6 py-12 md:grid-cols-3 md:px-10 md:py-14">
+      <div>
+        <div class="mb-3 h-1.5 w-16 bg-steel-700"></div>
+        <h2 class="m-0 mb-2 font-heading text-3xl font-semibold">Using the map</h2>
+        <p class="m-0 text-steel-900">Drag the map to move it and use the plus and minus buttons to zoom. Choose a colored area, or one of the numbered buttons beside the map, to see that section and a link to its rules.</p>
+      </div>
+      <div>
+        <div class="mb-3 h-1.5 w-16 bg-steel-700"></div>
+        <h2 class="m-0 mb-2 font-heading text-3xl font-semibold">Rules that apply everywhere</h2>
+        <p class="m-0 text-steel-900">The <a href="documents.html" class="underline underline-offset-2">Declaration and Bylaws</a> cover all 300 homes. Section rules add to them; they never replace them.</p>
+      </div>
+      <div>
+        <div class="mb-3 h-1.5 w-16 bg-steel-700"></div>
+        <h2 class="m-0 mb-2 font-heading text-3xl font-semibold">Questions</h2>
+        <p class="m-0 text-steel-900">Email the board at <a id="map-board-email" href="mailto:board@glenridgehomeowners.com" class="break-words underline underline-offset-2">board@glenridgehomeowners.com</a> and include your address so we can look up your section.</p>
+        <p id="map-request" hidden class="m-0 mt-3">
+          <a id="map-request-link" target="_blank" rel="noopener" class="underline underline-offset-2 text-steel-900">Submit a request<span class="sr-only"> (Portal, opens in a new tab)</span></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<site-footer></site-footer>
+
+</body>
+</html>

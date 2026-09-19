@@ -1,0 +1,56 @@
+{
+  "_note": "One entry for each of the 8 Sections, plus the map's starting center and zoom. rules is the link to that Section's rules and follows the same rules as any Document link: add \"portal\": true when it needs the Portal login. The polygons below are PLACEHOLDERS drawn as a 2x4 grid around the neighborhood center; replace each one with the real boundary from the plat (latitude/longitude corners, clockwise). Ask the site maintainer before changing a polygon.",
+  "center": [39.571, -84.181],
+  "zoom": 16,
+  "sections": [
+    {
+      "id": 1,
+      "name": "Section 1",
+      "rules": "https://example.com/documents/section-1-rules",
+      "polygon": [[39.578, -84.19], [39.578, -84.1855], [39.571, -84.1855], [39.571, -84.19]]
+    },
+    {
+      "id": 2,
+      "name": "Section 2",
+      "rules": "https://example.com/documents/section-2-rules",
+      "polygon": [[39.578, -84.1855], [39.578, -84.181], [39.571, -84.181], [39.571, -84.1855]]
+    },
+    {
+      "id": 3,
+      "name": "Section 3",
+      "rules": "https://example.com/documents/section-3-rules",
+      "polygon": [[39.578, -84.181], [39.578, -84.1765], [39.571, -84.1765], [39.571, -84.181]]
+    },
+    {
+      "id": 4,
+      "name": "Section 4",
+      "rules": "https://example.com/portal/documents/section-4-rules",
+      "portal": true,
+      "polygon": [[39.578, -84.1765], [39.578, -84.172], [39.571, -84.172], [39.571, -84.1765]]
+    },
+    {
+      "id": 5,
+      "name": "Section 5",
+      "rules": "https://example.com/documents/section-5-rules",
+      "polygon": [[39.571, -84.19], [39.571, -84.1855], [39.564, -84.1855], [39.564, -84.19]]
+    },
+    {
+      "id": 6,
+      "name": "Section 6",
+      "rules": "https://example.com/documents/section-6-rules",
+      "polygon": [[39.571, -84.1855], [39.571, -84.181], [39.564, -84.181], [39.564, -84.1855]]
+    },
+    {
+      "id": 7,
+      "name": "Section 7",
+      "rules": "https://example.com/documents/section-7-rules",
+      "polygon": [[39.571, -84.181], [39.571, -84.1765], [39.564, -84.1765], [39.564, -84.181]]
+    },
+    {
+      "id": 8,
+      "name": "Section 8",
+      "rules": "https://example.com/documents/section-8-rules",
+      "polygon": [[39.571, -84.1765], [39.571, -84.172], [39.564, -84.172], [39.564, -84.1765]]
+    }
+  ]
+}

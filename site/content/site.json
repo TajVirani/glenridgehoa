@@ -1,0 +1,6 @@
+{
+  "_note": "Site-wide settings. payUrl and requestUrl are the Portal pages for paying dues and submitting a request; they feed the buttons in the header of every page. email is shown in the footer and wherever the site asks homeowners to contact the board. Replace the example.com links with the real Portal addresses.",
+  "payUrl": "https://example.com/portal/pay-dues",
+  "requestUrl": "https://example.com/portal/submit-a-request",
+  "email": "board@glenridgehomeowners.com"
+}

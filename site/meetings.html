@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meetings &middot; Glen Ridge Homeowners Association</title>
+  <meta name="description" content="Board meeting dates, agendas and approved minutes for the Glen Ridge Homeowners Association in Clearcreek Township, Ohio.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/theme.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
+  <script type="module" src="assets/js/pages/meetings.js"></script>
+</head>
+<body class="bg-paper font-body text-lg leading-[1.55] text-ink">
+
+<noscript>
+  <p>This site needs JavaScript to display. For help, or for anything you cannot find here, email the board at <a href="mailto:board@glenridgehomeowners.com">board@glenridgehomeowners.com</a>.</p>
+</noscript>
+
+<site-header current="meetings"></site-header>
+
+<main id="main" class="scroll-mt-6">
+
+  <!-- INTRO Band: what the meetings are, and the next one called out -->
+  <section class="bg-steel-800 text-white">
+    <div class="mx-auto grid max-w-[1280px] items-center gap-8 px-6 py-12 md:px-10 md:py-16 lg:grid-cols-[1fr_420px]">
+      <div>
+        <p class="m-0 mb-3 text-sm font-medium uppercase tracking-[0.12em] text-steel-300">Board</p>
+        <h1 class="m-0 mb-4 text-pretty font-heading text-5xl font-semibold leading-[1.02] text-white md:text-6xl">Meetings &amp; minutes</h1>
+        <p class="m-0 max-w-[52ch] text-pretty text-xl text-steel-100">The board meets monthly and all homeowners are welcome. Agendas are posted a week ahead; minutes are posted after they are approved at the following meeting.</p>
+      </div>
+      <div class="bg-steel-900 p-7">
+        <div id="next-meeting" class="min-h-44">
+          <h2 class="m-0 mb-2 font-body text-sm font-medium uppercase tracking-[0.12em] text-steel-300">Next meeting</h2>
+          <time id="next-date" class="block font-heading text-4xl font-semibold leading-none text-white"></time>
+          <p id="next-headline" class="m-0 mt-1 font-heading text-2xl font-semibold text-steel-300"></p>
+          <p id="next-note" class="m-0 mt-4 text-base text-steel-100" hidden></p>
+          <p id="next-location" class="m-0 mt-2 text-base text-steel-100" hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING and PAST Bands -->
+  <section class="bg-white">
+    <div class="mx-auto grid max-w-[1280px] gap-14 px-6 py-12 md:px-10 md:py-16">
+
+      <div class="grid gap-6 lg:grid-cols-[280px_1fr]">
+        <div>
+          <div class="mb-3 h-1.5 w-16 bg-steel-700"></div>
+          <h2 class="m-0 mb-2 font-heading text-3xl font-semibold md:text-4xl">Upcoming</h2>
+          <p class="m-0 text-base text-ink/80">Scheduled after the next meeting.</p>
+        </div>
+        <div id="upcoming-body" class="min-h-40">
+          <ol id="upcoming-list" class="flex flex-col gap-3"></ol>
+        </div>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-[280px_1fr]">
+        <div>
+          <div class="mb-3 h-1.5 w-16 bg-steel-700"></div>
+          <h2 class="m-0 mb-2 font-heading text-3xl font-semibold md:text-4xl">Past meetings</h2>
+          <p class="m-0 text-base text-ink/80">Agendas and approved minutes, newest first.</p>
+        </div>
+        <div id="past-body" class="min-h-64">
+          <!-- Column labels for the wide layout only; every row reads on its own, so they are decorative. -->
+          <div aria-hidden="true" class="hidden border-b-2 border-steel-700 pb-2 text-sm font-medium uppercase tracking-[0.08em] text-ink/70 md:grid md:grid-cols-[11rem_minmax(0,1fr)_8rem_8rem] md:gap-4">
+            <span>Date</span>
+            <span>Meeting</span>
+            <span>Agenda</span>
+            <span>Minutes</span>
+          </div>
+          <ul id="past-list" class="flex flex-col"></ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REQUEST Band -->
+  <section class="bg-steel-100">
+    <div class="mx-auto grid max-w-[1280px] gap-4 px-6 py-10 md:grid-cols-[1fr_auto] md:items-center md:px-10">
+      <div>
+        <h2 class="m-0 mb-1 font-heading text-3xl font-semibold">Want something on the agenda?</h2>
+        <p class="m-0 text-base text-ink/80">Submit it at least ten days before the meeting.</p>
+      </div>
+      <a id="agenda-request" class="inline-flex min-h-12 items-center justify-center bg-steel-700 px-6 font-heading text-lg font-semibold text-white no-underline hover:bg-steel-800" target="_blank" rel="noopener" hidden>Submit a request<span class="sr-only"> (Portal, opens in a new tab)</span></a>
+    </div>
+  </section>
+
+</main>
+
+<!-- One upcoming meeting -->
+<template id="upcoming-template">
+  <li class="grid grid-cols-[84px_1fr] border border-ink/10 bg-paper sm:grid-cols-[96px_1fr]">
+    <div class="grid place-content-center bg-steel-700 p-3 text-center leading-none text-white">
+      <span class="block text-sm font-medium uppercase tracking-[0.1em]" data-month></span>
+      <span class="mt-1 block font-heading text-4xl font-semibold" data-day></span>
+    </div>
+    <div class="p-4 md:p-5">
+      <h3 class="m-0 font-heading text-2xl font-semibold leading-tight" data-title></h3>
+      <p class="m-0 mt-1 font-medium text-steel-800" data-when></p>
+      <p class="m-0 mt-1 text-base text-ink/80" data-note hidden></p>
+      <p class="m-0 mt-1 text-base text-ink/80" data-location hidden></p>
+    </div>
+  </li>
+</template>
+
+<!-- One past meeting: a stacked list row on phones, a table-like row from md up -->
+<template id="past-template">
+  <li class="grid gap-1 border-b border-ink/10 py-4 md:grid-cols-[11rem_minmax(0,1fr)_8rem_8rem] md:items-baseline md:gap-4 md:py-0 md:hover:bg-steel-100">
+    <time class="whitespace-nowrap font-heading text-xl font-semibold md:py-4" data-date></time>
+    <div class="md:py-4">
+      <p class="m-0" data-title></p>
+      <p class="m-0 mt-1 inline-flex items-center gap-1.5 text-base text-ink/80" data-portal hidden>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" class="shrink-0"><rect x="3" y="11" width="18" height="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Portal login required
+      </p>
+    </div>
+    <!-- The columns are placed by hand: a meeting with no agenda yet must not
+         let its minutes slide into the agenda column. -->
+    <a class="inline-flex min-h-12 items-center font-medium text-steel-700 underline underline-offset-2 hover:text-steel-900 md:col-start-3" target="_blank" rel="noopener" data-agenda hidden>Agenda<span class="sr-only" data-agenda-context></span></a>
+    <a class="inline-flex min-h-12 items-center font-medium text-steel-700 underline underline-offset-2 hover:text-steel-900 md:col-start-4" target="_blank" rel="noopener" data-minutes hidden>Minutes<span class="sr-only" data-minutes-context></span></a>
+  </li>
+</template>
+
+<site-footer></site-footer>
+
+</body>
+</html>

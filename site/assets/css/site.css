@@ -1,0 +1,174 @@
+/*
+ * The escape hatch.
+ *
+ * Tailwind utilities do the styling on this site; only rules that cannot be
+ * written as a utility belong here (see CONTRIBUTING.md, "CSS"). Colors come
+ * from the theme's custom properties, so the palette still lives in exactly
+ * one place: assets/js/theme.js.
+ */
+
+/* One visible focus state everywhere, drawn from the steel ramp. */
+:focus-visible {
+  outline: 3px solid var(--color-steel-400, currentColor);
+  outline-offset: 2px;
+}
+
+/*
+ * Reduced motion, with no exceptions. lib/motion.js already makes every Jump
+ * and Disclosure instant; this covers anything the browser would animate on
+ * its own, which no utility can reach.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===========================================================================
+ * Leaflet overrides.
+ *
+ * The Section map draws its own controls, popups and labels with Leaflet's
+ * class names and Leaflet's own stylesheet, which no utility can reach. The
+ * rules below repaint those in the site's palette, type and square corners,
+ * reading the colors from the theme so the palette still lives in exactly one
+ * place: assets/js/theme.js. The `.section-*` classes are the contents that
+ * lib/section-map.js builds inside a popup or a polygon label.
+ * ======================================================================== */
+
+.leaflet-container {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.leaflet-container a {
+  color: var(--color-steel-700);
+}
+
+.leaflet-container a:hover {
+  color: var(--color-steel-900);
+}
+
+/* Square corners everywhere Leaflet rounds them. */
+.leaflet-bar,
+.leaflet-bar a,
+.leaflet-bar a:first-child,
+.leaflet-bar a:last-child,
+.leaflet-touch .leaflet-bar,
+.leaflet-touch .leaflet-bar a:first-child,
+.leaflet-touch .leaflet-bar a:last-child,
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip,
+.leaflet-control-attribution,
+.leaflet-tooltip {
+  border-radius: 0;
+}
+
+.leaflet-bar {
+  border: 1px solid var(--color-steel-900);
+  box-shadow: none;
+}
+
+/* Leaflet's zoom buttons are 26-30 px; give them a size worth aiming at.
+   The `.leaflet-touch` selector is Leaflet's own, and has to be matched. */
+.leaflet-bar a,
+.leaflet-bar a:hover,
+.leaflet-touch .leaflet-bar a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom-color: var(--color-steel-400);
+  color: var(--color-ink);
+}
+
+.leaflet-bar a:hover {
+  background: var(--color-steel-200);
+}
+
+.leaflet-container .leaflet-control-attribution {
+  background: rgb(255 255 255 / 0.88);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #fff;
+  color: var(--color-ink);
+}
+
+.leaflet-popup-content {
+  margin: 14px 18px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Leaflet's close button is a 24 px tap target; give it room to be hit. */
+.leaflet-container a.leaflet-popup-close-button {
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--color-steel-800);
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: var(--color-ink);
+}
+
+.section-popup-title {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.section-popup-link {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.section-popup-note,
+.section-popup-portal {
+  margin: 6px 0 0;
+  font-size: 0.9375rem;
+}
+
+.section-popup-portal {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* The permanent number sitting on each Section polygon. */
+.section-label {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.section-label span {
+  display: inline-block;
+  min-width: 34px;
+  padding: 4px 8px;
+  border: 1px solid var(--color-ink);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}

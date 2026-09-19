@@ -1,0 +1,53 @@
+{
+  "_note": "The Documents library, arranged in groups. Each group has a title and a list of items; each item needs a title and a url. desc is a one-line explanation, updated is the date of the document itself (not the day you added it). Add \"portal\": true when a homeowner has to sign in to the Portal to open it. Section rules are not listed here: they come from sections.json. Replace the example.com links with the real ones.",
+  "groups": [
+    {
+      "title": "Governing documents",
+      "items": [
+        {
+          "title": "Declaration of Covenants, Conditions and Restrictions",
+          "desc": "The recorded CC&Rs that apply to every home in Glen Ridge.",
+          "updated": "2024-03-01",
+          "url": "https://example.com/documents/declaration-ccrs"
+        },
+        {
+          "title": "Bylaws",
+          "desc": "How the association is run: board, meetings, voting, and dues.",
+          "updated": "2023-11-15",
+          "url": "https://example.com/documents/bylaws"
+        },
+        {
+          "title": "Articles of Incorporation",
+          "desc": "The association's founding filing with the State of Ohio.",
+          "updated": "2003-06-10",
+          "url": "https://example.com/documents/articles-of-incorporation"
+        }
+      ]
+    },
+    {
+      "title": "Forms and policies",
+      "items": [
+        {
+          "title": "Architectural change request form",
+          "desc": "Required before fences, sheds, additions, or exterior color changes.",
+          "updated": "2026-01-12",
+          "url": "https://example.com/portal/forms/architectural-request",
+          "portal": true
+        },
+        {
+          "title": "Collection policy",
+          "desc": "Due dates, late fees, and payment plans for assessments.",
+          "updated": "2025-09-03",
+          "url": "https://example.com/portal/documents/collection-policy",
+          "portal": true
+        },
+        {
+          "title": "Enforcement and fine schedule",
+          "desc": "Notice steps and fines for rule violations.",
+          "updated": "2025-09-03",
+          "url": "https://example.com/documents/fine-schedule"
+        }
+      ]
+    }
+  ]
+}

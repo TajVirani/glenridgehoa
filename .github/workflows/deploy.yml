@@ -1,0 +1,66 @@
+name: Check and publish the website
+
+# Every push to main is checked first. Nothing is compiled: if the checks pass,
+# the site/ folder is published to GitHub Pages exactly as it is in the
+# repository. If a check fails, nothing is published and the version already
+# live stays up (docs/adr/0002-site-folder-deployed-by-action.md).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One publication at a time, and never cancel one that is already running.
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check the site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install the checking tools
+        run: npm ci
+
+      - name: Check the content, the links and the code
+        run: npm run check
+
+  deploy:
+    name: Publish to GitHub Pages
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - name: Get the repository
+        uses: actions/checkout@v7
+
+      - name: Get GitHub Pages ready
+        uses: actions/configure-pages@v6
+
+      - name: Package the site folder
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+      - name: Publish it
+        id: publish
+        uses: actions/deploy-pages@v5

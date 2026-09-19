@@ -1,7 +1,7 @@
 {
   "name": "glenridge-hoa-site",
   "private": true,
-  "description": "Developer tooling for the Glen Ridge HOA website. Nothing here ships: the site in site/ has no build step.",
+  "description": "Developer tooling for the Glenridge HOA website. Nothing here ships: the site in site/ has no build step.",
   "type": "module",
   "scripts": {
     "check": "npm run check:content && npm run check:links && npm run lint",

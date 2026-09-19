@@ -1,6 +1,6 @@
 # Contributing
 
-How the Glen Ridge HOA website is built. Read this before changing anything under `site/`.
+How the Glenridge HOA website is built. Read this before changing anything under `site/`.
 
 - Vocabulary (**Section**, **Document**, **Portal**, **Content**, **Shell**, **Band**, **Jump**, **Disclosure**) is defined in [CONTEXT.md](CONTEXT.md). Use those words in code, comments and commits.
 - The reasons behind the three big decisions are in [docs/adr/](docs/adr/).
@@ -72,7 +72,7 @@ Native ES modules, no bundler, no TypeScript.
 - `lib/content.js` is the only code that calls `fetch()` for Content, and the only place dates are parsed.
 - `lib/motion.js` is the only code that scrolls or animates height.
 - `lib/meetings.js` is the only code that decides which meetings are next, upcoming and past.
-- `lib/section-map.js` owns the Leaflet map. `lib/section-colors.js` owns the Section colors: list chips and map polygons get their color from the same function, so they always match.
+- `lib/section-map.js` owns the Leaflet map. `lib/section-colors.js` owns the Section colors: list chips and map polygons get their color from the same function, so they always match. The colors are assigned so that Sections that touch on the plat never share one; revisit the order there if a boundary changes.
 - Run `npm run check` before committing: it is what the deploy workflow runs (Content check, internal link check, lint). ESLint's recommended rules apply, plus the text-only rule below.
 
 ### Dates

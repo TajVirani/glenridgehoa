@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Glen Ridge Homeowners Association</title>
-  <meta name="description" content="News, meetings, governing documents and section rules for the Glen Ridge Homeowners Association in Clearcreek Township, Ohio.">
+  <title>Glenridge Homeowners Association</title>
+  <meta name="description" content="News, meetings, governing documents and section rules for the Glenridge Homeowners Association in Clearcreek Township, Ohio.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,17 +19,19 @@
 <body class="bg-paper font-body text-lg leading-[1.55] text-ink">
 
 <noscript>
-  <p>This site needs JavaScript to display. For help, or for anything you cannot find here, email the board at <a href="mailto:board@glenridgehomeowners.com">board@glenridgehomeowners.com</a>.</p>
+  <p>This site needs JavaScript to display. For help, or for anything you cannot find here, email the board at <a href="mailto:glenridgehomeowners@gmail.com">glenridgehomeowners@gmail.com</a>.</p>
 </noscript>
 
 <site-header current="home"></site-header>
 
 <main id="main" class="scroll-mt-6">
 
-  <!-- HERO Band -->
+  <!-- HERO Band. The sketch's filter is written as one ordered property: it must invert
+       first, then brighten. Separate filter utilities apply in a fixed order that
+       brightens first and washes the pencil lines out. -->
   <section class="relative overflow-hidden bg-steel-800 text-white">
     <img src="assets/img/street-sketch.png" alt="" aria-hidden="true"
-         class="pointer-events-none absolute inset-x-0 bottom-0 h-[72%] min-h-96 w-full select-none object-cover object-bottom opacity-[0.22] brightness-[1.6] contrast-[1.4] grayscale invert mix-blend-screen">
+         class="pointer-events-none absolute inset-x-0 bottom-0 h-[72%] min-h-96 w-full select-none object-cover object-bottom opacity-[0.22] mix-blend-screen [filter:invert(1)_grayscale(1)_brightness(1.6)_contrast(1.4)]">
     <div class="relative z-10 mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-10 px-6 py-14 md:px-10 md:py-20 lg:grid-cols-[1.3fr_1fr] lg:gap-14">
       <div>
         <p class="m-0 mb-3.5 text-sm font-medium uppercase tracking-[0.12em] text-steel-300">Clearcreek Township, Ohio</p>
@@ -42,7 +44,7 @@
       </div>
       <div class="grid grid-cols-2 gap-x-6 gap-y-7 bg-steel-900 p-8">
         <div>
-          <div class="font-heading text-6xl font-semibold leading-none text-white">300</div>
+          <div class="font-heading text-6xl font-semibold leading-none text-white">222</div>
           <div class="mt-1.5 text-steel-300">Homes</div>
         </div>
         <div>
@@ -120,17 +122,17 @@
             <!-- The map draws into this container; the sentence inside it
                  describes the map for anyone who cannot see it and stays in
                  place once Leaflet has filled the container around it. -->
-            <div id="home-map" role="region" aria-label="Map of the eight sections of Glen Ridge"
+            <div id="home-map" role="region" aria-label="Map of the eight sections of Glenridge"
                  class="h-[420px] w-full scroll-mt-6 border-4 border-steel-800 bg-white md:h-[520px]">
-              <p class="sr-only">The map shows the eight sections of Glen Ridge as numbered, colored areas over the neighborhood. Every section is listed beside the map, so the map is never the only way to reach your section.</p>
+              <p class="sr-only">The map shows the eight sections of Glenridge as numbered, colored areas over the neighborhood. Every section is listed beside the map, so the map is never the only way to reach your section.</p>
             </div>
             <p id="home-map-unavailable" class="m-0 mt-3 max-w-[74ch] text-base text-steel-900" hidden>The map could not be loaded. Every section is listed beside it, with a link to the community map.</p>
           </div>
 
-          <ul id="home-section-list" class="m-0 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2 lg:grid-cols-1" aria-label="Sections of Glen Ridge"></ul>
+          <ul id="home-section-list" class="m-0 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2 lg:grid-cols-1" aria-label="Sections of Glenridge"></ul>
         </div>
 
-        <p class="m-0 mt-4 max-w-[74ch] text-base text-neutral-700">Not sure which section you are in? <a href="map.html" class="underline underline-offset-2">Open the full community map</a>, or <a id="home-section-email" href="mailto:board@glenridgehomeowners.com" class="break-words underline underline-offset-2">email the board</a> with your address.</p>
+        <p class="m-0 mt-4 max-w-[74ch] text-base text-neutral-700">Not sure which section you are in? <a href="map.html" class="underline underline-offset-2">Open the full community map</a>, or <a id="home-section-email" href="mailto:glenridgehomeowners@gmail.com" class="break-words underline underline-offset-2">email the board</a> with your address.</p>
       </div>
     </div>
   </section>

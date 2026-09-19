@@ -1,17 +1,17 @@
-# Glen Ridge HOA Website
+# Glenridge HOA Website
 
-The public website of the Glen Ridge Homeowners Association (Clearcreek Township, Ohio): where homeowners find news, meetings, governing documents, and the rules for their part of the neighborhood.
+The public website of the Glenridge Homeowners Association (Clearcreek Township, Ohio): where homeowners find news, meetings, governing documents, and the rules for their part of the neighborhood.
 
 ## Language
 
 ### The neighborhood
 
 **Section**:
-One of the 8 platted parts of Glen Ridge, each with its own rules. Every home belongs to exactly one.
+One of the 8 platted parts of Glenridge, each with its own rules: 1, 2, 3A, 3B, 4, 5, 6A and 6B. Every home belongs to exactly one. The plat and the association's address list call the same thing a Phase.
 _Avoid_: Phase, area, zone; never use "section" for a part of a web page
 
 **Document**:
-A titled link to association material that is hosted elsewhere. The site lists Documents; it does not store them.
+A titled link to association material that is hosted elsewhere, usually in the Portal. The site lists Documents; it does not store them.
 _Avoid_: File, PDF, upload, attachment
 
 **Portal**:

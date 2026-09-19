@@ -59,7 +59,7 @@ class SiteHeader extends HTMLElement {
       {
         href: "index.html",
         class: "mr-auto flex items-center gap-3.5 text-white no-underline",
-        "aria-label": "Glen Ridge Homeowners Association home"
+        "aria-label": "Glenridge Homeowners Association home"
       },
       [
         element("span", {
@@ -68,7 +68,7 @@ class SiteHeader extends HTMLElement {
           "aria-hidden": "true"
         }),
         element("span", { class: "flex flex-col leading-none" }, [
-          element("span", { class: "font-heading text-2xl font-semibold", text: "GLEN RIDGE" }),
+          element("span", { class: "font-heading text-2xl font-semibold", text: "GLENRIDGE" }),
           element("span", {
             class: "mt-1 font-body text-[0.6875rem] font-medium tracking-[0.14em] text-steel-300",
             text: "HOMEOWNERS ASSOCIATION"

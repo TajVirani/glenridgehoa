@@ -1,6 +1,6 @@
-# Glen Ridge HOA website
+# Glenridge HOA website
 
-The public website of the Glen Ridge Homeowners Association, Clearcreek Township, Ohio: [glenridgehomeowners.com](https://glenridgehomeowners.com).
+The public website of the Glenridge Homeowners Association, Clearcreek Township, Ohio: [glenridgehomeowners.com](https://glenridgehomeowners.com).
 
 A static site on GitHub Pages. Plain HTML, Tailwind from a CDN, a little vanilla JavaScript, and Content read from JSON files. There is no build step: the `site/` folder is the website.
 

@@ -7,7 +7,7 @@
  */
 
 /** The board's address, used when site.json is the file that failed to load. */
-export const FALLBACK_BOARD_EMAIL = "board@glenridgehomeowners.com";
+export const FALLBACK_BOARD_EMAIL = "glenridgehomeowners@gmail.com";
 
 /** The message shown in a Band whose Content could not be read. */
 const LOAD_ERROR_TEXT = "This information couldn't be loaded. Please email the board at ";

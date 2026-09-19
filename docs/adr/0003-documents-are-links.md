@@ -4,6 +4,8 @@ The association's governing documents, Section rules, agendas and minutes alread
 
 Storing copies would make the website a second source of truth that silently goes stale, and would ask non-technical editors to upload binaries through GitHub.
 
+Meeting minutes were considered as an exception (September 2026) and rejected: they carry financial detail and homeowner concerns meant for homeowners, not the open web, so they go in the Portal like everything else and are linked with `"portal": true`.
+
 ## Consequences
 
 - A Document entry is a `url`, never a file path. Entries that sit behind the Portal login carry `"portal": true` so the page can say so before the homeowner clicks.

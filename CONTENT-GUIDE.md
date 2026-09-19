@@ -18,7 +18,7 @@ The website updates itself in about a minute.
 | A meeting, agenda link or minutes link | `meetings.json` |
 | A governing document, form or policy | `documents.json` |
 | A Section's rules link or map boundary | `sections.json` |
-| The board's email address or the Portal links | `site.json` |
+| The board's email address, the Portal links or the social links | `site.json` |
 
 ## If GitHub emails you that something failed
 
@@ -42,10 +42,10 @@ Fix it and commit again. If you cannot find it, email the site maintainer; the o
 
 ## Documents are links
 
-The website does not store documents. It links to where they already live: the management company's **Portal**, or the board's Google Drive.
+The website does not store documents. It links to where they already live, which for almost everything is the management company's **Portal**. That includes meeting agendas and minutes: they are for homeowners, not the open web.
 
-- In Google Drive, set sharing to **Anyone with the link can view** before you copy the link. This is the most common reason a document "doesn't work".
 - If a homeowner must log in to the Portal to see the document, add `"portal": true` to its entry. The website will then say "Portal login required" next to the link.
+- If you link to a file in Google Drive, set sharing to **Anyone with the link can view** before you copy the link, and remember that anyone on the internet can then open it.
 
 ## The files
 
@@ -90,6 +90,7 @@ One list holds every meeting, past and future, in any order. The website sorts t
 - `date`, `time` and `title` are required. Everything else is optional.
 - Before the meeting: add the `agenda` link when it is ready.
 - After the meeting: add the `minutes` link. That is all; the meeting moves to the past list on its own.
+- When no future meeting is listed, the website says the next meeting is to be announced. Add the meeting when the date is set.
 - If the agenda and minutes need the Portal login, add `"portal": true` to that meeting.
 - `location` at the top of the file applies to every meeting. To hold one meeting somewhere else, add a `location` line to that meeting.
 
@@ -113,19 +114,20 @@ Documents are arranged in groups; each group has a `title` and a list of `items`
 
 ### sections.json
 
-One entry for each of the 8 Sections.
+One entry for each of the 8 Sections: 1, 2, 3A, 3B, 4, 5, 6A and 6B. (The plat and the association's address list call a Section a "Phase"; they are the same thing.)
 
 ```json
 {
-  "id": 1,
-  "name": "Section 1",
+  "id": "3A",
+  "name": "Section 3A",
   "rules": "https://…",
-  "polygon": [[39.578, -84.190], [39.578, -84.1855], [39.571, -84.1855], [39.571, -84.190]]
+  "polygon": [[39.571673, -84.185888], [39.571678, -84.185871], [39.57221, -84.184282]]
 }
 ```
 
 - `rules` is the link to that Section's rules, and follows the same rules as any Document link (add `"portal": true` if it needs the Portal login).
-- `polygon` is the Section's boundary on the map, as latitude/longitude corners. Ask the site maintainer before changing it.
+- `id` is what appears on the map label and in links such as `map.html?section=3A`. Keep it in quotes.
+- `polygon` is the outline of the Section's lots on the map, taken from the Warren County parcel map. Ask the site maintainer before changing it, and keep the Sections in this order: the map colors depend on it.
 
 ### site.json
 
@@ -133,9 +135,12 @@ One entry for each of the 8 Sections.
 {
   "payUrl": "https://…",
   "requestUrl": "https://…",
-  "email": "board@glenridgehomeowners.com"
+  "email": "glenridgehomeowners@gmail.com",
+  "facebookUrl": "https://…",
+  "nextdoorUrl": "https://…"
 }
 ```
 
 - `payUrl` and `requestUrl` are the Portal pages for paying dues and submitting a request. They feed the buttons in the header of every page.
-- `email` is shown in the footer and wherever the site asks homeowners to contact the board.
+- `email` is shown in the footer and wherever the site asks homeowners to contact the board. If the board's address ever changes, tell the site maintainer as well: the same address is written into each page for visitors whose browser cannot run the site, and the website's checks will refuse the change until those match.
+- `facebookUrl` and `nextdoorUrl` are the neighborhood's social pages, listed under **Social** at the bottom of every page. Delete a line and that link disappears.

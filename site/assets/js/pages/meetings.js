@@ -11,7 +11,7 @@
 import "../shell/site-header.js";
 import "../shell/site-footer.js";
 import { formatContentDate, loadContent, renderBandEmpty, renderBandError } from "../lib/content.js";
-import { splitMeetings } from "../lib/meetings.js";
+import { NEXT_MEETING_TO_BE_ANNOUNCED, splitMeetings } from "../lib/meetings.js";
 import { enableJumpLinks } from "../lib/motion.js";
 
 enableJumpLinks(document);
@@ -53,7 +53,7 @@ function fillPage(data) {
 
 function fillNext(meeting) {
   if (!meeting) {
-    renderBandEmpty(nextBand, "No upcoming meetings are scheduled.");
+    renderBandEmpty(nextBand, NEXT_MEETING_TO_BE_ANNOUNCED);
     return;
   }
 
@@ -122,13 +122,15 @@ function fillPast(meetings) {
   }
 }
 
-// One agenda or minutes link: hidden unless the board has added it, opening in
-// a new tab and saying so in words for anyone who cannot see the row.
+// One agenda or minutes link: until the board adds it the row says "No agenda
+// posted"; once added, the link replaces that label, opening in a new tab and
+// saying so in words for anyone who cannot see the row.
 function fillLink(row, name, url, title, dateLabel) {
   if (!url) return false;
   const link = row.querySelector("[data-" + name + "]");
   link.href = url;
   link.hidden = false;
+  row.querySelector("[data-" + name + "-missing]").hidden = true;
   row.querySelector("[data-" + name + "-context]").textContent =
     " for " + join([title, dateLabel], ", ") + " (opens in a new tab)";
   return true;

@@ -21,7 +21,7 @@ import {
   renderBandEmpty,
   renderBandError
 } from "../lib/content.js";
-import { splitMeetings } from "../lib/meetings.js";
+import { NEXT_MEETING_TO_BE_ANNOUNCED, splitMeetings } from "../lib/meetings.js";
 import { newestFirst } from "../lib/news.js";
 import { enableJumpLinks, jumpTo } from "../lib/motion.js";
 import { sectionColor } from "../lib/section-colors.js";
@@ -95,7 +95,7 @@ function fillNews(items) {
 
 function fillNextMeeting(meeting) {
   if (!meeting) {
-    renderBandEmpty(meetingBand, "No upcoming meetings are scheduled.");
+    renderBandEmpty(meetingBand, NEXT_MEETING_TO_BE_ANNOUNCED);
     return;
   }
 

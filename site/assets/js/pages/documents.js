@@ -140,7 +140,7 @@ function fillSections(data) {
 /** One Section: the color chip, the rules link when there is one, and the link to it on the map. */
 function buildSection(section, index) {
   if (!section || typeof section !== "object") return null;
-  const id = Number.isFinite(section.id) ? String(section.id) : "";
+  const id = typeof section.id === "number" || typeof section.id === "string" ? String(section.id) : "";
   const name = text(section.name) || (id ? "Section " + id : "");
   if (!name) return null;
 

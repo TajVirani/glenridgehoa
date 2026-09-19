@@ -1,6 +1,8 @@
 {
-  "_note": "Site-wide settings. payUrl and requestUrl are the Portal pages for paying dues and submitting a request; they feed the buttons in the header of every page. email is shown in the footer and wherever the site asks homeowners to contact the board.",
+  "_note": "Site-wide settings. payUrl and requestUrl are the Portal pages for paying dues and submitting a request; they feed the buttons in the header of every page. email is shown in the footer and wherever the site asks homeowners to contact the board. facebookUrl and nextdoorUrl are the neighborhood's social pages, listed under Social in the footer; leave one out and its link disappears.",
   "payUrl": "https://home.eclipsecommunities.com/billing/account-overview",
   "requestUrl": "https://home.eclipsecommunities.com/dashboard",
-  "email": "board@glenridgehomeowners.com"
+  "email": "glenridgehomeowners@gmail.com",
+  "facebookUrl": "https://www.facebook.com/groups/523099064455999",
+  "nextdoorUrl": "https://nextdoor.com/neighborhood/glenridgeestatesoh--centerville--oh/"
 }

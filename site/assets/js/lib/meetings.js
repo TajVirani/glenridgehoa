@@ -9,6 +9,9 @@
 
 import { parseContentDate } from "./content.js";
 
+/** What the site says while the board has not set the next meeting date. */
+export const NEXT_MEETING_TO_BE_ANNOUNCED = "The next meeting is to be announced. The date will be posted here once it is set.";
+
 /**
  * Split the meetings Content into the next meeting, the upcoming ones after it and the past ones.
  *

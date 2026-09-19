@@ -24,7 +24,7 @@ const TILE_ATTRIBUTION = "© OpenStreetMap contributors";
 const MAX_ZOOM = 19;
 
 // Used only when the sections Content is missing its map view; the neighborhood
-// center, so an incomplete file still opens over Glen Ridge.
+// center, so an incomplete file still opens over Glenridge.
 const FALLBACK_CENTER = [39.571, -84.181];
 const FALLBACK_ZOOM = 16;
 

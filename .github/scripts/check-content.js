@@ -47,7 +47,7 @@ const EXAMPLE_LINES = {
   polygon: '"polygon": [[39.578, -84.190], [39.578, -84.1855], [39.571, -84.1855], [39.571, -84.190]]',
   payUrl: '"payUrl": "https://example.com/portal/pay-dues"',
   requestUrl: '"requestUrl": "https://example.com/portal/submit-a-request"',
-  email: '"email": "board@glenridgehomeowners.com"',
+  email: '"email": "glenridgehomeowners@gmail.com"',
   items: '"items": [ … ]',
   groups: '"groups": [ … ]',
   meetings: '"meetings": [ … ]',
@@ -58,7 +58,7 @@ const EXAMPLE_LINES = {
 const DATE_KEYS = new Set(["date", "updated"]);
 
 // Keys whose value is a link to somewhere else on the web.
-const LINK_KEYS = new Set(["url", "agenda", "minutes", "rules", "payUrl", "requestUrl"]);
+const LINK_KEYS = new Set(["url", "agenda", "minutes", "rules", "payUrl", "requestUrl", "facebookUrl", "nextdoorUrl"]);
 
 /* ------------------------------------------------------------------ *
  * Reading a file
@@ -194,6 +194,7 @@ function checkLink(file, where, key, value) {
     return;
   }
   const link = value.trim();
+
   const wellFormed = /^https?:\/\/[^\s"<>]+$/.test(link) && canBeRead(link);
   if (!wellFormed) {
     problem(file, where + ' has "' + key + '": "' + link + '". A link has to be the whole web address, starting with https:// — copy it from the address bar of your browser.');

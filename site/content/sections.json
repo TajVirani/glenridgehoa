@@ -1,56 +1,55 @@
 {
-  "_note": "One entry for each of the 8 Sections, plus the map's starting center and zoom. rules is the link to that Section's rules and follows the same rules as any Document link: add \"portal\": true when it needs the Portal login. The polygons below are PLACEHOLDERS drawn as a 2x4 grid around the neighborhood center; replace each one with the real boundary from the plat (latitude/longitude corners, clockwise). Ask the site maintainer before changing a polygon.",
-  "center": [39.571, -84.181],
+  "_note": "One entry for each of the 8 Sections, plus the map's starting center and zoom. A Section is what the plat and the association's address list call a Phase: 1, 2, 3A, 3B, 4, 5, 6A and 6B. rules is the link to that Section's rules and follows the same rules as any Document link: add \"portal\": true when it needs the Portal login. Each polygon is the outline of that Section's lots, merged from the Warren County parcel map (latitude/longitude corners). Ask the site maintainer before changing a polygon.",
+  "center": [39.573182, -84.183679],
   "zoom": 16,
   "sections": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Section 1",
       "rules": "https://example.com/documents/section-1-rules",
-      "polygon": [[39.578, -84.19], [39.578, -84.1855], [39.571, -84.1855], [39.571, -84.19]]
+      "polygon": [[39.568585, -84.184986], [39.57063, -84.184777], [39.570407, -84.180897], [39.569121, -84.181039], [39.569164, -84.181683], [39.569322, -84.181708], [39.569655, -84.181609], [39.569987, -84.181567], [39.569965, -84.181778], [39.569973, -84.181927], [39.568407, -84.182086]]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Section 2",
       "rules": "https://example.com/documents/section-2-rules",
-      "polygon": [[39.578, -84.1855], [39.578, -84.181], [39.571, -84.181], [39.571, -84.1855]]
+      "polygon": [[39.571122, -84.184929], [39.571112, -84.184786], [39.571673, -84.184724], [39.571764, -84.184445], [39.572124, -84.184276], [39.572613, -84.184222], [39.572565, -84.183497], [39.572655, -84.183487], [39.572533, -84.181635], [39.57234, -84.181133], [39.571946, -84.180728], [39.570407, -84.180897], [39.570643, -84.184982]]
     },
     {
-      "id": 3,
-      "name": "Section 3",
-      "rules": "https://example.com/documents/section-3-rules",
-      "polygon": [[39.578, -84.181], [39.578, -84.1765], [39.571, -84.1765], [39.571, -84.181]]
+      "id": "3A",
+      "name": "Section 3A",
+      "rules": "https://example.com/documents/section-3a-rules",
+      "polygon": [[39.570759, -84.186785], [39.570793, -84.186781], [39.571195, -84.187217], [39.571641, -84.187167], [39.571595, -84.186472], [39.571832, -84.186445], [39.571775, -84.185674], [39.571715, -84.18536], [39.571673, -84.184724], [39.571195, -84.184777], [39.571204, -84.18492], [39.570643, -84.184982]]
     },
     {
-      "id": 4,
+      "id": "3B",
+      "name": "Section 3B",
+      "rules": "https://example.com/documents/section-3b-rules",
+      "polygon": [[39.572613, -84.184222], [39.574063, -84.184062], [39.574348, -84.183927], [39.574602, -84.18384], [39.574846, -84.183793], [39.574764, -84.183074], [39.574887, -84.18305], [39.574817, -84.182436], [39.575648, -84.182276], [39.575634, -84.181602], [39.575771, -84.181017], [39.575505, -84.180492], [39.575347, -84.180379], [39.574624, -84.180453], [39.574611, -84.181113], [39.574012, -84.181245], [39.573763, -84.18134], [39.573025, -84.181331], [39.572533, -84.181635], [39.572662, -84.183593], [39.572572, -84.183603]]
+    },
+    {
+      "id": "4",
       "name": "Section 4",
-      "rules": "https://example.com/portal/documents/section-4-rules",
-      "portal": true,
-      "polygon": [[39.578, -84.1765], [39.578, -84.172], [39.571, -84.172], [39.571, -84.1765]]
+      "rules": "https://example.com/documents/section-4-rules",
+      "polygon": [[39.571641, -84.187167], [39.574754, -84.186797], [39.574662, -84.185192], [39.574113, -84.185409], [39.571775, -84.185674], [39.57184, -84.186554], [39.571602, -84.186579]]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Section 5",
       "rules": "https://example.com/documents/section-5-rules",
-      "polygon": [[39.571, -84.19], [39.571, -84.1855], [39.564, -84.1855], [39.564, -84.19]]
+      "polygon": [[39.571775, -84.185674], [39.574113, -84.185409], [39.574662, -84.185192], [39.57694, -84.184752], [39.576789, -84.182532], [39.576578, -84.18256], [39.576336, -84.182669], [39.576301, -84.182509], [39.576189, -84.182194], [39.574817, -84.182436], [39.574899, -84.183155], [39.574776, -84.183179], [39.574846, -84.183793], [39.574601, -84.18384], [39.574297, -84.183945], [39.574063, -84.184062], [39.572124, -84.184276], [39.571763, -84.184446], [39.571673, -84.184724], [39.571715, -84.18536]]
     },
     {
-      "id": 6,
-      "name": "Section 6",
-      "rules": "https://example.com/documents/section-6-rules",
-      "polygon": [[39.571, -84.1855], [39.571, -84.181], [39.564, -84.181], [39.564, -84.1855]]
+      "id": "6A",
+      "name": "Section 6A",
+      "rules": "https://example.com/documents/section-6a-rules",
+      "polygon": [[39.576782, -84.182426], [39.576686, -84.180886], [39.575754, -84.180983], [39.575771, -84.181017], [39.575634, -84.181602], [39.575648, -84.182276], [39.576268, -84.182182], [39.576363, -84.182432], [39.576409, -84.182482]]
     },
     {
-      "id": 7,
-      "name": "Section 7",
-      "rules": "https://example.com/documents/section-7-rules",
-      "polygon": [[39.571, -84.181], [39.571, -84.1765], [39.564, -84.1765], [39.564, -84.181]]
-    },
-    {
-      "id": 8,
-      "name": "Section 8",
-      "rules": "https://example.com/documents/section-8-rules",
-      "polygon": [[39.571, -84.1765], [39.571, -84.172], [39.564, -84.172], [39.564, -84.1765]]
+      "id": "6B",
+      "name": "Section 6B",
+      "rules": "https://example.com/documents/section-6b-rules",
+      "polygon": [[39.57694, -84.184752], [39.577957, -84.184556], [39.577681, -84.180141], [39.577659, -84.180144], [39.577648, -84.180373], [39.577578, -84.180592], [39.577358, -84.180927], [39.576686, -84.180886]]
     }
   ]
 }

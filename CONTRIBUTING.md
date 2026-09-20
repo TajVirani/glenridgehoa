@@ -16,6 +16,7 @@ site/                       the website, and the only folder that is published
   CNAME
   content/                  Content: the five JSON files the board edits
     site.json  news.json  meetings.json  documents.json  sections.json
+    lots.json               generated, not board-edited: every lot's Section, address and outline
   assets/
     js/
       theme.js              Tailwind theme: the one place colors and fonts are defined
@@ -72,7 +73,7 @@ Native ES modules, no bundler, no TypeScript.
 - `lib/content.js` is the only code that calls `fetch()` for Content, and the only place dates are parsed.
 - `lib/motion.js` is the only code that scrolls or animates height.
 - `lib/meetings.js` is the only code that decides which meetings are next, upcoming and past.
-- `lib/section-map.js` owns the Leaflet map. `lib/section-colors.js` owns the Section colors: list chips and map polygons get their color from the same function, so they always match. The colors are assigned so that Sections that touch on the plat never share one; revisit the order there if a boundary changes.
+- `lib/section-map.js` owns the Leaflet map, including the individual lots that appear from zoom 17. `lots.json` comes from the county's public parcel map and carries lot, Section, address and outline only; the Content check rejects any other field, so resident information can never ride along. `lib/section-colors.js` owns the Section colors: list chips and map polygons get their color from the same function, so they always match. The colors are assigned so that Sections that touch on the plat never share one; revisit the order there if a boundary changes.
 - Run `npm run check` before committing: it is what the deploy workflow runs (Content check, internal link check, lint). ESLint's recommended rules apply, plus the text-only rule below.
 
 ### Dates

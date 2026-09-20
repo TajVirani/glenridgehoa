@@ -61,6 +61,13 @@ function fillMapBand(content) {
 
   fillChips(sections, sectionMap);
 
+  // Individual lots are an extra: if lots.json is missing or broken the map
+  // simply shows the Sections alone.
+  loadContent("lots").then(
+    (lots) => sectionMap.showLots(lots),
+    () => {}
+  );
+
   const asked = new URL(window.location.href).searchParams.get("section");
   if (asked) sectionMap.flyToSection(asked);
 }

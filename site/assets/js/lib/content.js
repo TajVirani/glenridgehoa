@@ -23,7 +23,10 @@ const loaded = new Map();
 /** Load a Content file by name ("news", "site", …) and return its parsed contents. */
 export function loadContent(name) {
   if (!loaded.has(name)) {
-    const request = fetch(new URL(name + ".json", CONTENT_DIR)).then((response) => {
+    // "no-cache" still uses the browser's copy, but only after asking the server
+    // whether it changed. Without it a board member's edit can stay invisible
+    // for ten minutes, the time the host lets browsers keep a file unasked.
+    const request = fetch(new URL(name + ".json", CONTENT_DIR), { cache: "no-cache" }).then((response) => {
       if (!response.ok) {
         throw new Error("Could not read " + name + ".json (" + response.status + ")");
       }

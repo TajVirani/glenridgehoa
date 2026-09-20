@@ -42,6 +42,12 @@ const MIN_USABLE_HEIGHT = 40;
 const FILL_OPACITY = 0.55;
 const FILL_OPACITY_HOVER = 0.78;
 
+// Individual lots only make sense close up; further out they are clutter, and
+// the Sections are what a visitor is choosing between.
+const LOTS_MIN_ZOOM = 17;
+const LOT_STYLE = { color: "#f2f2f3", weight: 1, fillColor: "#f2f2f3", fillOpacity: 0 };
+const LOT_STYLE_HOVER = { weight: 2, fillOpacity: 0.35 };
+
 const LOCK_ICON = [
   "M5 11h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z",
   "M7 11V7a5 5 0 0 1 10 0v4"
@@ -146,9 +152,45 @@ export function createSectionMap(container, content, options) {
   }
   frame();
 
+  // The lots layer is added and removed as the visitor crosses LOTS_MIN_ZOOM.
+  let lotsLayer = null;
+
+  function syncLots() {
+    if (!lotsLayer) return;
+    const close = map.getZoom() >= LOTS_MIN_ZOOM;
+    if (close && !map.hasLayer(lotsLayer)) lotsLayer.addTo(map);
+    if (!close && map.hasLayer(lotsLayer)) map.removeLayer(lotsLayer);
+  }
+
+  map.on("zoomend", syncLots);
+
   return {
     /** The Leaflet map itself, for anything a page needs that is not below. */
     map,
+
+    /**
+     * Add the individual lots (the lots Content) on top of the Sections. They
+     * appear once the visitor zooms in; each opens a popup with its address,
+     * its Section and that Section's rules. Returns how many lots were drawn.
+     */
+    showLots(lotsContent) {
+      const lots = Array.isArray(lotsContent && lotsContent.lots) ? lotsContent.lots : [];
+      if (lotsLayer) map.removeLayer(lotsLayer);
+      lotsLayer = L.featureGroup();
+      let drawn = 0;
+      for (const lot of lots) {
+        if (!lot || !Array.isArray(lot.outline) || lot.outline.length < 3 || !lot.outline.every(isLatLng)) continue;
+        const index = sections.findIndex((section, position) => sectionKey(section, position) === String(lot.section));
+        const outline = L.polygon(lot.outline, LOT_STYLE);
+        outline.bindPopup(buildLotPopup(lot, index >= 0 ? sections[index] : null, index));
+        outline.on("mouseover", () => outline.setStyle(LOT_STYLE_HOVER));
+        outline.on("mouseout", () => outline.setStyle(LOT_STYLE));
+        outline.addTo(lotsLayer);
+        drawn += 1;
+      }
+      syncLots();
+      return drawn;
+    },
     /** The ids of the Sections actually drawn, in Content order, as strings. */
     sectionIds: Array.from(layers.keys()),
 
@@ -206,6 +248,26 @@ function buildPopup(section, index) {
     );
   }
 
+  return popup;
+}
+
+// The popup for one lot: its address, which Section it is in, and the same
+// rules link that Section's own popup offers.
+function buildLotPopup(lot, section, index) {
+  const address = typeof lot.address === "string" ? lot.address.trim() : "";
+  const popup = element("div", { class: "section-popup" }, [
+    element("h3", { class: "section-popup-title", text: address || "Lot " + lot.lot })
+  ]);
+  if (!section) return popup;
+
+  const details = [sectionName(section, index)];
+  if (address && lot.lot) details.push("Lot " + lot.lot);
+  popup.append(element("p", { class: "section-popup-note", text: details.join(" · ") }));
+
+  // Reuse the Section's popup body (rules link and Portal note) below the address.
+  const sectionPopup = buildPopup(section, index);
+  sectionPopup.querySelector(".section-popup-title").remove();
+  popup.append(...sectionPopup.childNodes);
   return popup;
 }
 

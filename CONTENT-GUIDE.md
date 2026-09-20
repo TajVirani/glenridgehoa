@@ -20,6 +20,8 @@ The website updates itself in about a minute.
 | A Section's rules link or map boundary | `sections.json` |
 | The board's email address, the Portal links or the social links | `site.json` |
 
+There is a sixth file, `lots.json`, that you should leave alone. It holds the outline and street address of every lot so the map can show individual homes, and it is generated from the Warren County parcel map. It holds no names, and must never hold any. If a lot looks wrong, tell the site maintainer.
+
 ## If GitHub emails you that something failed
 
 Nothing is broken for homeowners. The website checks every change before publishing it; when a check fails, the site keeps showing the previous version.

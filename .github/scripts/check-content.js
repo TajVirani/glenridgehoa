@@ -341,6 +341,37 @@ function checkSections() {
   return sections.length;
 }
 
+// lots.json is generated from the county parcel map, not edited by the board,
+// so this only guards the two things that matter: every lot belongs to a real
+// Section, and the file has not picked up anything about the people who live there.
+function checkLots() {
+  const file = "lots.json";
+  const data = readContentFile(file);
+  if (!data) return 0;
+  const lots = asList(file, data, "lots", "lot");
+  const sectionsFile = readJsonQuietly("sections.json");
+  const known = new Set(((sectionsFile && sectionsFile.sections) || []).map((section) => String(section && section.id)));
+  const allowed = new Set(["lot", "section", "address", "outline"]);
+  lots.forEach((lot, index) => {
+    if (!lot || typeof lot !== "object") return;
+    const where = 'the lot "' + (lot.address || "number " + (index + 1)) + '"';
+    if (!known.has(String(lot.section))) problem(file, where + ' is in Section "' + lot.section + '", which is not in sections.json.');
+    checkPolygon(file, where, lot.outline);
+    for (const key of Object.keys(lot)) {
+      if (!allowed.has(key)) problem(file, where + ' has a "' + key + '" line. This file may only hold lot, section, address and outline: never anything about who lives there.');
+    }
+  });
+  return lots.length;
+}
+
+function readJsonQuietly(file) {
+  try {
+    return JSON.parse(readFileSync(join(contentRoot, file), "utf8"));
+  } catch {
+    return null;
+  }
+}
+
 function checkPolygon(file, where, polygon) {
   const corners = Array.isArray(polygon) ? polygon : null;
   if (!corners || corners.length < 3) {
@@ -454,6 +485,7 @@ const counts = [
   ["meetings.json", checkMeetings(), "meetings"],
   ["documents.json", checkDocuments(), "documents"],
   ["sections.json", checkSections(), "Sections"],
+  ["lots.json", checkLots(), "lots"],
 ];
 const boardEmail = checkSite();
 checkBoardEmailEverywhere(boardEmail);

@@ -150,6 +150,12 @@ function fillSectionBand(content) {
   }
 
   enableChips(sectionMap);
+
+  // Individual lots are an extra: without lots.json the map shows the Sections alone.
+  loadContent("lots").then(
+    (lots) => sectionMap.showLots(lots),
+    () => {}
+  );
 }
 
 // Every Section as a link to it on the Community Map page: the map here is
